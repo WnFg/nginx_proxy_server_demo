@@ -1,0 +1,17 @@
+ngx_addon_name=my_http_proxy_module
+
+PX_SRCS="                                                                 \
+        $ngx_addon_dir/src/my_http_proxy_module.c                           \
+        $ngx_addon_dir/src/ngx_http_proxy_upstream.c                            \
+        $ngx_addon_dir/src/ngx_http_proxy_config.c                         \
+        "
+
+PX_DEPS="                                                                 \
+        $ngx_addon_dir/src/ngx_http_proxy_config.h                       \
+        $ngx_addon_dir/src/ngx_http_proxy_upstream.h                          \
+        "
+
+
+HTTP_MODULES="$HTTP_MODULES $ngx_addon_name"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $PX_SRCS"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $PX_DEPS"
